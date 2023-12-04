@@ -1,3 +1,4 @@
+import { userInfoAction } from "../store/employeeReducer";
 import { getUserListAction } from "../store/usersReducer";
 
 export function fetchUserList() {
@@ -8,10 +9,14 @@ export function fetchUserList() {
   };
 }
 
-export function fetchser(id) {
+export function fetchUser(id) {
   return function (dispatch) {
-    fetch("https://jsonplaceholder.typicode.com/users" + id)
+    fetch("https://jsonplaceholder.typicode.com/users/" + id)
       .then((res) => res.json())
-      .then((data) => dispatch(getUserListAction(data)));
+      .then((data) => dispatch(userInfoAction(data)));
   };
 }
+
+
+
+
